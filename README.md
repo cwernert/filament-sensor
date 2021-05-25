@@ -16,3 +16,6 @@ This is written for a [WEMOS D1 Mini](https://www.wemos.cc/en/latest/d1/d1_mini.
 There are a few constant variables to declare at the start, such as your WiFi credentials and the Zapier Webhook URL. You can also adjust the alert messages if you'd like to.
 
 Depending on your printer, you might also like to play with the detection threshold (set to 4000ms for my printer) to improve detection speed without introducing false-positives.
+
+## Additional notes
+Filament sensing will not start until 5 minutes AFTER the completion dectection magnet has been disconnected. This allows time for the extruder to heat up and the print to actually commence before the alarm starts freaking out your cat. You can adjust this at line 68. Likewise, the device will not send a "completion" notification unless the printer ran for more than 5 minutes - and this can be adjusted at line 58.
